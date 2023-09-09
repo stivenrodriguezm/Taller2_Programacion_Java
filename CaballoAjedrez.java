@@ -1,8 +1,7 @@
-
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 
-public class Main {
+public class CaballoAjedrez {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -73,6 +72,7 @@ public class Main {
             }
 
             // Posibles movimientos horizontales
+
             if ((columna == 1 || columna == 2) && (2 <= fila && fila <= 7)) {
                 int nuevaColumna = columna + 2;
                 int nuevaFila1 = fila + 1;
@@ -112,56 +112,33 @@ public class Main {
                 int nuevaColumna2 = columna - 2;
                 int nuevaFila1 = fila + 1;
                 int nuevaFila2 = fila - 1;
+                posiblesSalidas.add("(" + nuevaFila1 + ", " + nuevaColumna2 + ")");
                 posiblesSalidas.add("(" + nuevaFila1 + ", " + nuevaColumna1 + ")");
+                posiblesSalidas.add("(" + nuevaFila1 + ", " + nuevaColumna2 + ")");
+                posiblesSalidas.add("(" + nuevaFila2 + ", " + nuevaColumna1 + ")");
                 posiblesSalidas.add("(" + nuevaFila2 + ", " + nuevaColumna2 + ")");
+            } else if (3 <= columna && columna <= 6 && fila == 1) {
+                int nuevaFila = fila + 1;
+                int nuevaColumna1 = columna + 2;
+                int nuevaColumna2 = columna - 2;
+                posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna1 + ")");
+                posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna2 + ")");
+            } else if (3 <= columna && columna <= 6 && fila == 8) {
+                int nuevaFila = fila - 1;
+                int nuevaColumna1 = columna + 2;
+                int nuevaColumna2 = columna - 2;
+                posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna1 + ")");
+                posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna2 + ")");
             }
-        } else if (3 <= columna && columna <= 6 && fila == 1) {
-            int nuevaFila = fila + 1;
-            int nuevaColumna1 = columna + 2;
-            int nuevaColumna2 = columna - 2;
-            posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna1 + ")");
-            posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna2 + ")");
-        } else if (3 <= columna && columna <= 6 && fila == 8) {
-            int nuevaFila = fila - 1;
-            int nuevaColumna1 = columna + 2;
-            int nuevaColumna2 = columna - 2;
-            posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna1 + ")");
-            posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna1 + ")");
-        }
 
-        System.out.println("Fila, Columna");
-        for (String movimiento : posiblesSalidas) {
-            System.out.println(movimiento);
+            // Imprimir las posibles salidas
+            System.out.println("Fila, Columna");
+            for (String salida : posiblesSalidas) {
+                System.out.println(salida);
+            }
+        } else {
+            System.out.println("Error: Posición inválida.");
         }
-    } else {
-        System.out.println("Error: Posición inválida.");
     }
 }
 
-posiblesSalidas.add("(" + nuevaFila1 + ", " + nuevaColumna1 + ")");
-        posiblesSalidas.add("(" + nuevaFila1 + ", " + nuevaColumna2 + ")");
-        posiblesSalidas.add("(" + nuevaFila2 + ", " + nuevaColumna1 + ")");
-        posiblesSalidas.add("(" + nuevaFila2 + ", " + nuevaColumna2 + ")");
-        } else if (3 <= columna && columna <= 6 && fila == 1) {
-        int nuevaFila = fila + 1;
-        int nuevaColumna1 = columna + 2;
-        int nuevaColumna2 = columna - 2;
-        posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna1 + ")");
-        posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna2 + ")");
-        } else if (3 <= columna && columna <= 6 && fila == 8) {
-        int nuevaFila = fila - 1;
-        int nuevaColumna1 = columna + 2;
-        int nuevaColumna2 = columna - 2;
-        posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna1 + ")");
-        posiblesSalidas.add("(" + nuevaFila + ", " + nuevaColumna1 + ")");
-        }
-
-        System.out.println("Fila, Columna");
-        for (String movimiento : posiblesSalidas) {
-        System.out.println(movimiento);
-        }
-        } else {
-        System.out.println("Error: Posición inválida.");
-        }
-        }
-        }
